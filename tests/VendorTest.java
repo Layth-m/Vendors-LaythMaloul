@@ -33,4 +33,12 @@ public class VendorTest {
             assertEquals(5000, vendor.getBalance());
         }
     }
+
+    @Test
+    void testBuy()
+    {
+        vendor.addMoney(1.25);
+        vendor.select("Candy");
+        assertEquals(0, vendor.getBalance());
+    }
 }
