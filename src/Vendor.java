@@ -28,7 +28,18 @@ class Vending {
     /** adds money to the machine's balance
      * @param amt how much money to add
      * */
-    void addMoney (double amt) {
+    void addMoney (double amt)
+    {
+        if(amt <= 0){
+            System.out.print("no negative or 0 money allowed");
+            return;
+        }
+        //ensure if max int is added then max int is not surpassed.
+        if(amt + getBalance() <0){
+            this.balance = Integer.MAX_VALUE;
+            return;
+        }
+
         this.balance = this.balance + amt;
     }
 
