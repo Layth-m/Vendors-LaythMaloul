@@ -5,11 +5,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class VendorTest {
+    private Vending vendor1;
+    private Vending vendor2;
+    private Vending vendor3;
+    private Vending vendor4;
 
+    private Vending vendor5;
     static Vending vendor;
     @BeforeEach
     public void setup() {
-       vendor = new Vending(5, 5);
+       vendor = new Vending("vendor",5, 5);
     }
     @Test
     void addition() {
@@ -86,6 +91,20 @@ public class VendorTest {
         //new candy should have value of old candy which is 5
         assertEquals(-1,vendor.getItemStock("Candy"));
         assertEquals(5, vendor.getItemStock("Twix"));
+    }
+
+    @Test
+    public void testPrintInventory(){
+        vendor1= new Vending ("Vendor1",1,5);
+        vendor2= new Vending ("Vendor2",9,3);
+        vendor3= new Vending ("Vendor3",30,10);
+        vendor4= new Vending ("Vendor4",7,5);
+        vendor5= new Vending ("Vendor5",10,9);
+        vendor1.printInventory();
+        vendor2.printInventory();
+        vendor3.printInventory();
+        vendor4.printInventory();
+        vendor5.printInventory();
     }
 
 

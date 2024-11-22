@@ -8,11 +8,13 @@ import java.util.HashMap;
 class Vending {
     private static HashMap<String, Item> Stock = new HashMap<String,Item>();
     private double balance;
-
-    Vending(int numCandy, int numGum) {
+    public String vendorName;
+    Vending(String vendorName, int numCandy, int numGum) {
+        this.vendorName = vendorName;
         Stock.put("Candy", new Item(1.25, numCandy));
         Stock.put("Gum", new Item(.5, numGum));
         this.balance = 0;
+
     }
 
     //keep track of stock
@@ -92,6 +94,14 @@ public int getItemStock(String itemName){
             System.out.print("Invalid name");
         }
 
+    }
+
+    void printInventory(){
+        System.out.println("vendor: "+ vendorName);
+        for(String itemName: Stock.keySet()){
+            Item item = Stock.get(itemName);
+            System.out.println("-"+ itemName+ ": "+ item.stock + " price: "+ item.price+" ");
+        }
     }
 
 }
