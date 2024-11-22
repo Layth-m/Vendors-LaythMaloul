@@ -116,6 +116,17 @@ public class VendorTest {
         vendor.RemoveItem("DNE");
     }
 
+    @Test
+    public void testPurchaseTracking(){
+        vendor.addMoney(10);
+        vendor.select("Candy");
+        vendor.select("Candy");
+        vendor.select("Gum");
+
+        assertEquals(2, vendor.getPurchaseCount("Candy"));
+        assertEquals(1, vendor.getPurchaseCount("Gum"));
+    }
+
 
 
 

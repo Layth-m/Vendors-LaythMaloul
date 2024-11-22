@@ -9,6 +9,8 @@ class Vending {
     private static HashMap<String, Item> Stock = new HashMap<String,Item>();
     private double balance;
     public String vendorName;
+
+
     Vending(String vendorName, int numCandy, int numGum) {
         this.vendorName = vendorName;
         Stock.put("Candy", new Item(1.25, numCandy));
@@ -110,6 +112,11 @@ public int getItemStock(String itemName){
         else {
             System.out.print("Item not found to be removed");
         }
+    }
+
+    int getPurchaseCount(String name){
+        Item item = Stock.get(name);
+        return item.purchaseCount;
     }
 
 
