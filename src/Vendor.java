@@ -17,8 +17,14 @@ class Vending {
 
     //keep track of stock
 public int getItemStock(String itemName){
-        Item item = Vending.Stock.get(itemName);
-        return item.stock;
+        if(Stock.containsKey(itemName)){
+            Item item = Vending.Stock.get(itemName);
+            return item.stock;
+        }
+        else{
+            return -1;
+        }
+
 }
     /** resets the Balance to 0 */
     void resetBalance () {
@@ -74,6 +80,18 @@ public int getItemStock(String itemName){
             //item not in list add it
             Stock.put(name, new Item(3.0,amt));
         }
+    }
+
+    void renameItem(String oldName, String newName){
+        if(Stock.containsKey(oldName)&& !Stock.containsKey(newName)){
+            Item item = Stock.get(oldName);
+            Stock.remove(oldName);
+            Stock.put(newName, item);
+        }
+        else{
+            System.out.print("Invalid name");
+        }
+
     }
 
 }

@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class VendorTest {
 
@@ -75,6 +76,16 @@ public class VendorTest {
     public void testRestockNewItem(){
         vendor.restock("Coke",20);
         assertEquals(20, vendor.getItemStock("Coke"));
+    }
+
+    @Test
+    public void TestItemRename(){
+        vendor.renameItem("Candy","Twix");
+
+        //old candy no longer exists therefore count = -1
+        //new candy should have value of old candy which is 5
+        assertEquals(-1,vendor.getItemStock("Candy"));
+        assertEquals(5, vendor.getItemStock("Twix"));
     }
 
 
