@@ -136,6 +136,21 @@ public class VendorTest {
         String DNE = vendor.getDescription("DNE");
         assertEquals("Item not found", DNE);
     }
+    @Test
+    public void TestDiscount(){
+        // test apply invalid discount
+        vendor.discount("Candy", 200);
+        assertEquals(1.25, vendor.getItemPrice("Candy"));
+        vendor.discount("Candy", Integer.MIN_VALUE);
+        assertEquals(1.25, vendor.getItemPrice("Candy"));
+        vendor.discount("Candy", Integer.MAX_VALUE);
+        assertEquals(1.25, vendor.getItemPrice("Candy"));
+
+        //test valid discount
+        vendor.discount("Candy",20);
+        assertEquals(1, vendor.getItemPrice("Candy"));
+
+    }
 
 
 

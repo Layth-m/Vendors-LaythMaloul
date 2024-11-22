@@ -129,6 +129,27 @@ public int getItemStock(String itemName){
        }
     }
 
+    double getItemPrice(String name){
+        Item item = Stock.get(name);
+        if(item!= null){
+            return item.getPrice();
+        }
+        else{
+            System.out.print("Invalid item name");
+            return -1;
+        }
+    }
+
+    void discount(String name, double discountPercentage){
+        Item item = Stock.get(name);
+        if(item!= null){
+            item.applyDiscount(discountPercentage);
+        }
+        else{
+            System.out.print("Item DNE");
+        }
+    }
+
 
 }
 

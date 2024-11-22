@@ -34,4 +34,16 @@ class Item {
     String getItemDescription(){
         return ItemDescription;
     }
+    double getPrice(){
+        return price;
+    }
+
+    void applyDiscount(double discountPercent){
+        if(discountPercent<=100 && discountPercent > 0){
+            this.price = this.price *(1 - discountPercent/100);
+        }
+        else{
+            System.out.print("Enter a valid percent 1 - 100 ");
+        }
+    }
 }
