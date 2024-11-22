@@ -107,6 +107,17 @@ public class VendorTest {
         vendor5.printInventory();
     }
 
+    @Test
+    public void testRemoveItem(){
+        vendor.RemoveItem("Gum");
+        assertEquals(-1,vendor.getItemStock("Gum"));
+
+        //test for item that does not exist
+        vendor.RemoveItem("DNE");
+    }
+
+
+
 
 
 }

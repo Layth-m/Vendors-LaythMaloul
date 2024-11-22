@@ -103,8 +103,18 @@ public int getItemStock(String itemName){
             System.out.println("-"+ itemName+ ": "+ item.stock + " price: "+ item.price+" ");
         }
     }
+    void RemoveItem(String ItemName){
+        if(Stock.containsKey(ItemName)){
+            Stock.remove(ItemName);
+        }
+        else {
+            System.out.print("Item not found to be removed");
+        }
+    }
+
 
 }
+
 
 class Examples {
 }
