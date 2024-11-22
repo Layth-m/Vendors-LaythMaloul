@@ -150,6 +150,24 @@ public int getItemStock(String itemName){
         }
     }
 
+    void setAsBestSeller(String name){
+        Item item = Stock.get(name);
+        if(item != null){
+            item.setBestSeller();
+        }
+        else{
+            System.out.print("Item DNE");
+        }
+    }
+
+    //method to check bestseller status
+    boolean isBestSeller(String name){
+        Item item = Stock.get(name);
+
+       //checks item exists and is true returns true else false.
+        return item != null && item.isbestSeller();
+    }
+
 
 }
 

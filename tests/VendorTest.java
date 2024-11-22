@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -150,6 +151,22 @@ public class VendorTest {
         vendor.discount("Candy",20);
         assertEquals(1, vendor.getItemPrice("Candy"));
 
+    }
+    @Test
+    public void TestBestSeller(){
+
+        // no bestsellers by default
+        Assertions.assertFalse(vendor.isBestSeller("Candy"));
+        Assertions.assertFalse(vendor.isBestSeller("Gum"));
+
+        //test candy as bestseller
+        vendor.setAsBestSeller("Candy");
+        Assertions.assertTrue(vendor.isBestSeller("Candy"));
+        Assertions.assertFalse(vendor.isBestSeller("Gum"));
+
+        //test Invalid candy
+        vendor.setAsBestSeller("DNE");
+        Assertions.assertFalse(vendor.isBestSeller("DNE"));
     }
 
 

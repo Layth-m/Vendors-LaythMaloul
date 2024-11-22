@@ -3,11 +3,13 @@ class Item {
     int stock;
     public int purchaseCount;
     String ItemDescription;
+    boolean bestSeller;
     Item(double price, int numPieces, String description) {
         this.price = price;
         this.stock = numPieces;
         this.purchaseCount = 0;
         this.ItemDescription = description;
+        this.bestSeller = false;
     }
 
     void restock(int amount) {
@@ -45,5 +47,11 @@ class Item {
         else{
             System.out.print("Enter a valid percent 1 - 100 ");
         }
+    }
+    void setBestSeller(){
+        this.bestSeller = true;
+    }
+    boolean isbestSeller(){
+        return this.bestSeller;
     }
 }
