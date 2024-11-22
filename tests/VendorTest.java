@@ -57,5 +57,21 @@ public class VendorTest {
         assertEquals(0, vendor.getItemStock("Candy"));
     }
 
+    @Test
+    public void testRestock(){
+        //restock items
+
+       //test min
+        vendor.restock("Gum",Integer.MIN_VALUE);
+        assertEquals(5, vendor.getItemStock("Gum"));
+        // test mid
+        vendor.restock("Candy",10);
+        assertEquals(15,vendor.getItemStock("Candy") );
+        //test max
+         vendor.restock("Candy",Integer.MAX_VALUE);
+        assertEquals(Integer.MAX_VALUE, vendor.getItemStock("Candy"));
+    }
+
+
 
 }

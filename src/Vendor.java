@@ -36,7 +36,7 @@ public int getItemStock(String itemName){
     void addMoney (double amt)
     {
         if(amt <= 0){
-            System.out.print("no negative or 0 money allowed");
+
             return;
         }
         //ensure if max int is added then max int is not surpassed.
@@ -64,6 +64,15 @@ public int getItemStock(String itemName){
                 System.out.println("Gimme more money");
         }
         else System.out.println("Sorry, don't know that item");
+    }
+    void restock(String name, int amt){
+        if(Stock.containsKey(name)){
+            Item item = Stock.get(name);
+            item.restock(amt);
+        }
+        else{
+            System.out.print("That item cannot be added");
+        }
     }
 
 }

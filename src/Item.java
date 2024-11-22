@@ -8,7 +8,19 @@ class Item {
     }
 
     void restock(int amount) {
-        this.stock = this.stock + amount;
+        if(amount <=0 ){
+            System.out.print("Amount cannot be <= 0");
+            return;
+        }
+        if(amount + this.stock <= 0){
+            this.stock = Integer.MAX_VALUE;
+            return;
+        }
+        else{
+            this.stock = this.stock + amount;
+            return;
+        }
+
     }
 
     void purchase(int amount) {
