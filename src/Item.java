@@ -1,12 +1,13 @@
 class Item {
     double price;
     int stock;
-
     public int purchaseCount;
-    Item(double price, int numPieces) {
+    String ItemDescription;
+    Item(double price, int numPieces, String description) {
         this.price = price;
         this.stock = numPieces;
         this.purchaseCount = 0;
+        this.ItemDescription = description;
     }
 
     void restock(int amount) {
@@ -28,5 +29,9 @@ class Item {
     void purchase(int amount) {
         this.stock = this.stock - amount;
         this.purchaseCount += amount;
+    }
+
+    String getItemDescription(){
+        return ItemDescription;
     }
 }

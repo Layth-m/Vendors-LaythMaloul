@@ -13,8 +13,8 @@ class Vending {
 
     Vending(String vendorName, int numCandy, int numGum) {
         this.vendorName = vendorName;
-        Stock.put("Candy", new Item(1.25, numCandy));
-        Stock.put("Gum", new Item(.5, numGum));
+        Stock.put("Candy", new Item(1.25, numCandy,"Sweat snack for a quick burst of energy"));
+        Stock.put("Gum", new Item(.5, numGum, "Freshens Breath and is low calorie"));
         this.balance = 0;
 
     }
@@ -82,7 +82,7 @@ public int getItemStock(String itemName){
         }
         else{
             //item not in list add it
-            Stock.put(name, new Item(3.0,amt));
+            Stock.put(name, new Item(3.0,amt, ""));
         }
     }
 
@@ -117,6 +117,16 @@ public int getItemStock(String itemName){
     int getPurchaseCount(String name){
         Item item = Stock.get(name);
         return item.purchaseCount;
+    }
+
+    String getDescription(String name){
+       Item item = Stock.get(name);
+       if(item == null ){
+           return "Item not found";
+       }
+       else {
+          return item.getItemDescription();
+       }
     }
 
 

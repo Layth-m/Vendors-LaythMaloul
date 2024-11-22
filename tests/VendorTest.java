@@ -127,6 +127,16 @@ public class VendorTest {
         assertEquals(1, vendor.getPurchaseCount("Gum"));
     }
 
+    @Test
+    public void TestItemDescription(){
+        assertEquals("Sweat snack for a quick burst of energy",vendor.getDescription("Candy"));
+        assertEquals("Freshens Breath and is low calorie", vendor.getDescription("Gum"));
+
+        // test non existent item
+        String DNE = vendor.getDescription("DNE");
+        assertEquals("Item not found", DNE);
+    }
+
 
 
 
