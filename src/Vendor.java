@@ -71,7 +71,8 @@ public int getItemStock(String itemName){
             item.restock(amt);
         }
         else{
-            System.out.print("That item cannot be added");
+            //item not in list add it
+            Stock.put(name, new Item(3.0,amt));
         }
     }
 
