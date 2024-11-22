@@ -15,6 +15,11 @@ class Vending {
         this.balance = 0;
     }
 
+    //keep track of stock
+public int getItemStock(String itemName){
+        Item item = Vending.Stock.get(itemName);
+        return item.stock;
+}
     /** resets the Balance to 0 */
     void resetBalance () {
         this.balance = 0;

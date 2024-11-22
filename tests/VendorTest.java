@@ -41,4 +41,21 @@ public class VendorTest {
         vendor.select("Candy");
         assertEquals(0, vendor.getBalance());
     }
+    @Test
+    void testEmpty(){
+        vendor.addMoney(10.0);
+
+        //purchase all candies
+        for(int i = 0; i<5; i++){
+            vendor.select("Candy");
+        }
+        //purchase all gum
+        for(int i = 0; i<5; i++){
+            vendor.select("Gum");
+        }
+
+        assertEquals(0, vendor.getItemStock("Candy"));
+    }
+
+
 }
